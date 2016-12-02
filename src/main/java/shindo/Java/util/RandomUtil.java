@@ -2,6 +2,14 @@ package shindo.Java.util;
 
 import java.util.Random;
 
+/**
+ * 
+ * @ClassName RandomUtil
+ * @Description 这个类可以用于生成3DES的key
+ * @author shindo.yang
+ * @Date 2016年12月2日 下午3:20:38
+ * @version 1.0.0
+ */
 public class RandomUtil {
 
     public static final String ALLCHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
