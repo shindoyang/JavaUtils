@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class MapSortDemo2 {
+public class Map_sortByValue2 {
     public static void main(String[] args) {
 
         Map<String, Long> map = new TreeMap<String, Long>();
@@ -37,7 +37,7 @@ public class MapSortDemo2 {
         }
         Map<String, Long> sortedMap = new LinkedHashMap<String, Long>();
         List<Map.Entry<String, Long>> entryList = new ArrayList<Map.Entry<String, Long>>(oriMap.entrySet());
-        Collections.sort(entryList, new MapValueComparator2());
+        Collections.sort(entryList, new Map_sortByValue2_Comparator2());
 
         Iterator<Map.Entry<String, Long>> iter = entryList.iterator();
         Map.Entry<String, Long> tmpEntry = null;
