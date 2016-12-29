@@ -132,7 +132,8 @@ public class DesEncrypt {
     public static void main(String args[]) {
         DesEncrypt des = new DesEncrypt();
 
-        String str1 = "fo/9fscDspNl5R8pTJhGE4kkyluNmEyL7vb2NdufWWkvOzteGJ8cninOxe7gJq5MAcJuXpKx6sBpEBs3K8c2X+YTDoHEm95kEPNljx4FQakvOzteGJ8cnvlCFh4qTlwxAcJuXpKx6sDq7BiAqrhdt5JYXlOLNrgbzsta0LdaS08vOzteGJ8cnnoYWVa9T4R1Sg1St7J21OM=";
+        // fo/9fscDspNl5R8pTJhGE4kkyluNmEyL7vb2NdufWWkvOzteGJ8cninOxe7gJq5MAcJuXpKx6sBpEBs3K8c2X+YTDoHEm95kEPNljx4FQakvOzteGJ8cnvlCFh4qTlwxAcJuXpKx6sDq7BiAqrhdt5JYXlOLNrgbzsta0LdaS08vOzteGJ8cnnoYWVa9T4R1Sg1St7J21OM=
+        String str1 = "fo/9fscDspPz1YOp+5eNy4vGaZROcCn0KcqQDh8dGHfp2ls2yle5AiXw1Nsz9Ij8LyJR4umQnKw=";
         // DES加密
 //        String str2 = des.encrypt(str1);
         DesEncrypt des1 = new DesEncrypt();
