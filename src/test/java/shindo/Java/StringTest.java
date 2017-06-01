@@ -20,5 +20,8 @@ public class StringTest {
             System.out.println(pimg);
         }
 
+        /*String v = "YjlmM2NjNjhhMmJhYjUyMWRjOWNmMzNkZDM2YzhmMzU3OTU4NjRkZjViNjcwNWY2NzkwOGMwNzRkMTJjM2FjMw==";
+        System.out.println(v.length());*/
+
     }
 }
