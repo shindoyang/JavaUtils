@@ -4,7 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TestPrivateMap {
-	private Map<String, String> parameters = new HashMap<String,String>();
+	private Map<String, String> parameters;
+	
+	{
+		this.parameters = new HashMap<String,String>();
+	}
 	
 	public void parseRequest(Map<String,String> condition) {
 		for(Map.Entry<String, String> entry:condition.entrySet()) {
