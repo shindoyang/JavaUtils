@@ -1,4 +1,4 @@
-package shindo.Java;
+package src.main.java.shindo.Java;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
