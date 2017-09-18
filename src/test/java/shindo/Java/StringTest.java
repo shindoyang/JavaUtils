@@ -22,22 +22,28 @@ public class StringTest {
             System.out.println(pimg);
         }*/
 
-        String v = "【包邮装】Viscontour 维诗朵 玻尿酸精华液 30支（强效去皱抗衰老） 013;【好喝又便宜】双支装平价却倍感惊艳的德国进口雷司令半甜白 的圣母之爱 020;ROHTO OXY 酷爽清凉UV防晒喷雾 015;ROHTO 肌研白润药用美白面膜 20ml*4枚 015;高丝 玻尿酸保湿美容液面膜 26枚 015;高丝美白面膜 26回 015;澳洲Dermatix 疤痕膏15g 014;台湾JOJO儿童水果钙片105克 001";
+        /*String v = "【包邮装】Viscontour 维诗朵 玻尿酸精华液 30支（强效去皱抗衰老） 013;【好喝又便宜】双支装平价却倍感惊艳的德国进口雷司令半甜白 的圣母之爱 020;ROHTO OXY 酷爽清凉UV防晒喷雾 015;ROHTO 肌研白润药用美白面膜 20ml*4枚 015;高丝 玻尿酸保湿美容液面膜 26枚 015;高丝美白面膜 26回 015;澳洲Dermatix 疤痕膏15g 014;台湾JOJO儿童水果钙片105克 001";
         System.out.println(v.getBytes("GBK").length);
         byte[] vb = v.getBytes("GBK");
         byte[] bb = new byte[200];
         if(vb.length>200){
         	System.arraycopy(vb, 0, bb, 0, 200);
-        	/*src：byte源数组
+        	src：byte源数组
         	srcPos：截取源byte数组起始位置（0位置有效）
         	dest,：byte目的数组（截取后存放的数组）
         	destPos：截取后存放的数组起始位置（0位置有效）
-        	length：截取的数据长度*/
+        	length：截取的数据长度
         }
         String result = new String(bb,"GBK");
         System.out.println(result.getBytes("GBK").length);
-        System.out.println(result);
+        System.out.println(result);*/
+    	
+    	/*String productNames = "西莎狗粮 (日系)野菜白身鱼 100g 001,喜跃猫粮 吞拿鱼 400g 001";
+    	String[] ps = productNames.split(",");
+    	System.out.println(productNames.split(",")[0]);*/
         
+        String test = "【備孕組合】BIO ISLAND 生物島 備孕組合 孕婦DHA膠囊 60粒 和袋鼠精（高含量） 50000mg 90粒";
+        System.out.println(test.getBytes().length);
         
 
     }
