@@ -3,8 +3,7 @@ package shindo.Java.util;
 import java.io.FileInputStream;
 import java.security.KeyStore;
 import java.security.PrivateKey;
-
-import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 /**
  * 详细使用见博文：http://www.cnblogs.com/shindo/p/6117647.html
@@ -26,10 +25,9 @@ public class Export_sslKey {
 
     public static PrivateKey getPrivateKey() {
         try {
-            BASE64Encoder encoder = new BASE64Encoder();
             KeyStore ks = getKeyStore("D:/Macaumarket/key/test.keystore", "macaumarket");
             PrivateKey key = (PrivateKey) ks.getKey("test", "macaumarket".toCharArray());
-            String encoded = encoder.encode(key.getEncoded());
+            String encoded = Base64.getEncoder().encodeToString(key.getEncoded());
             System.out.println("-----BEGIN RSA PRIVATE KEY-----");
             System.out.println(encoded);
             System.out.println("-----END RSA PRIVATE KEY-----");

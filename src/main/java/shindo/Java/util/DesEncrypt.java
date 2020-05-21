@@ -2,13 +2,11 @@ package shindo.Java.util;
 
 import java.security.Key;
 import java.security.SecureRandom;
+import java.util.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 /**  
  * js使用des加密，后台使用des解密  要主要前后台使用相同的key  
@@ -47,15 +45,13 @@ public class DesEncrypt {
         byte[] byteMi = null;
         byte[] byteMing = null;
         String strMi = "";
-        BASE64Encoder base64en = new BASE64Encoder();
         try {
             byteMing = strMing.getBytes("UTF8");
             byteMi = this.getEncCode(byteMing);
-            strMi = base64en.encode(byteMi);
+            strMi = Base64.getEncoder().encodeToString(byteMi);
         } catch (Exception e) {
             throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
         } finally {
-            base64en = null;
             byteMing = null;
             byteMi = null;
         }
@@ -69,18 +65,16 @@ public class DesEncrypt {
      * @return  
      */
     public String decrypt(String strMi) {
-        BASE64Decoder base64De = new BASE64Decoder();
         byte[] byteMing = null;
         byte[] byteMi = null;
         String strMing = "";
         try {
-            byteMi = base64De.decodeBuffer(strMi);
+            byteMi = Base64.getDecoder().decode(strMi);
             byteMing = this.getDesCode(byteMi);
             strMing = new String(byteMing, "UTF8");
         } catch (Exception e) {
             throw new RuntimeException("Error initializing SqlMap class. Cause: " + e);
         } finally {
-            base64De = null;
             byteMing = null;
             byteMi = null;
         }

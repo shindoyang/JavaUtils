@@ -1,6 +1,7 @@
 package shindo.Java.util.threeDES;
 
 import java.net.URLDecoder;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,8 +12,6 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 @SuppressWarnings({ "restriction" })
 public class ThreeDESECB {
@@ -46,8 +45,7 @@ public class ThreeDESECB {
         final byte[] b = cipher.doFinal(src.getBytes("UTF-8"));
 
         // --通过base64,将加密数组转换成字符串
-        final BASE64Encoder encoder = new BASE64Encoder();
-        return encoder.encode(b);
+        return Base64.getEncoder().encodeToString(b);
     }
 
     /**
@@ -62,8 +60,7 @@ public class ThreeDESECB {
      */
     public String decryptDESCBC(final String src, final String key) throws Exception {
         // --通过base64,将字符串转成byte数组
-        final BASE64Decoder decoder = new BASE64Decoder();
-        final byte[] bytesrc = decoder.decodeBuffer(src);
+        final byte[] bytesrc = Base64.getDecoder().decode(src);
 
         // --解密的key
         final DESKeySpec desKeySpec = new DESKeySpec(key.getBytes("UTF-8"));
@@ -93,16 +90,14 @@ public class ThreeDESECB {
         cipher.init(Cipher.ENCRYPT_MODE, securekey);
         final byte[] b = cipher.doFinal(src.getBytes());
 
-        final BASE64Encoder encoder = new BASE64Encoder();
-        return encoder.encode(b).replaceAll("\r", "").replaceAll("\n", "");
+        return Base64.getEncoder().encodeToString(b).replaceAll("\r", "").replaceAll("\n", "");
 
     }
 
     // 3DESECB解密,key必须是长度大于等于 3*8 = 24 位哈
     public String decryptThreeDESECB(final String src, final String key) throws Exception {
         // --通过base64,将字符串转成byte数组
-        final BASE64Decoder decoder = new BASE64Decoder();
-        final byte[] bytesrc = decoder.decodeBuffer(src);
+        final byte[] bytesrc = Base64.getDecoder().decode(src);
         // --解密的key
         final DESedeKeySpec dks = new DESedeKeySpec(key.getBytes("UTF-8"));
         final SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("DESede");

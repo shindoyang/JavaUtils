@@ -2,6 +2,7 @@ package shindo.Java.util.threeDES;
 
 import java.net.URLDecoder;
 import java.security.Key;
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,8 +10,6 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-
-import sun.misc.BASE64Decoder;
 
 public class ThreeDESCBC {
     /**
@@ -114,12 +113,12 @@ public class ThreeDESCBC {
     public Map<String, String> parasDecryptCBC(Map<String, String> paras, String key) throws Exception {
         Map<String, String> map = new HashMap<String, String>();
         try {
-            byte[] pf_3des_key = new BASE64Decoder().decodeBuffer(key);
+            byte[] pf_3des_key = Base64.getDecoder().decode(key);
             byte[] keyiv = { 1, 2, 3, 4, 5, 6, 7, 8 };// 3DES解密IV值
             String telePhone = paras.get("telePhone");// 浦发新接口电话不加密
 
-            byte[] card = new BASE64Decoder().decodeBuffer(URLDecoder.decode(paras.get("cardNo"), "UTF-8"));
-            byte[] cert = new BASE64Decoder().decodeBuffer(URLDecoder.decode(paras.get("certNo"), "UTF-8"));
+            byte[] card = Base64.getDecoder().decode(URLDecoder.decode(paras.get("cardNo"), "UTF-8"));
+            byte[] cert = Base64.getDecoder().decode(URLDecoder.decode(paras.get("certNo"), "UTF-8"));
 
             String cardNo = new String(des3DecodeCBC(pf_3des_key, keyiv, card), "UTF-8");// 卡号
             String certNo = new String(des3DecodeCBC(pf_3des_key, keyiv, cert), "UTF-8");// 证件号码
@@ -141,7 +140,7 @@ public class ThreeDESCBC {
      * @date 2016年11月22日 上午9:28:22
      */
     public static void main(String[] args) throws Exception {
-        byte[] key = new BASE64Decoder().decodeBuffer("YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4");
+        byte[] key = Base64.getDecoder().decode("YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4");
         byte[] keyiv = { 1, 2, 3, 4, 5, 6, 7, 8 };
         byte[] data = "420106198203279258".getBytes("UTF-8");
         /*System.out.println("ECB加密解密");
@@ -158,7 +157,7 @@ public class ThreeDESCBC {
         System.out.println(new String(str6, "UTF-8"));*/
 
         String str7 = "uHrew7Thp2taL2NJpSJhF2mdFMP7BZ1W";
-        byte[] str8 = new BASE64Decoder().decodeBuffer(str7);
+        byte[] str8 = Base64.getDecoder().decode(str7);
         byte[] str9 = des3DecodeCBC(key, keyiv, str8);
         System.out.println(new String(str9, "UTF-8"));
 
