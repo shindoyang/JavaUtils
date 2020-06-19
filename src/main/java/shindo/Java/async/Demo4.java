@@ -2,6 +2,10 @@ package shindo.Java.async;
 
 import java.util.concurrent.CountDownLatch;
 
+/**
+ * java异步转同步第4种方法：CountDownLatch
+ * 比较优雅
+ */
 public class Demo4 extends BaseDemo{
 
     private final CountDownLatch countDownLatch  = new CountDownLatch(1);
