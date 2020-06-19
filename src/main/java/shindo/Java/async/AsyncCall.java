@@ -43,6 +43,6 @@ public class AsyncCall {
     }
 
     public void shutdown(){
-        tp.shutdown();
+        tp.shutdown();//不要试用shutdownNow()，该方法会试图中断执行中的方法。
     }
 }
