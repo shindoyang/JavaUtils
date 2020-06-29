@@ -4,7 +4,7 @@ import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * java异步转同步第5种方法：CyclicBarrier
+ * java异步转同步第5种方法：CyclicBarrier 满人发车
  */
 public class Demo5 extends BaseDemo{
 

@@ -111,6 +111,12 @@
 		    <artifactId>fastjson</artifactId>
 		    <version>1.2.35</version>
 		</dependency>
-        
+        <!--如果在springcloud 项目里面，直接用mail的starter就好-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>2.3.1.RELEASE</version>
+        </dependency>
+
     </dependencies>
 </project>
